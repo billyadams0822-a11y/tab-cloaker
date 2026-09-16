@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link Launcher</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    button {
+      padding: 13px 20px;
+      font-size: 16px;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Link Launcher</h1>
+  <input id="url" type="url" placeholder="https://example.com">
+  <button onclick="openLink()">Open Link</button>
+
+  <script>
+    function openLink() {
+      let url = document.getElementById("url").value.trim();
+      if (!url) return;
+
+      if (!/^https?:\/\//i.test(url)) {
+        url = "https://" + url;
+      }
+
+      // Navigate the current page; this works more reliably from local files on iPad.
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
